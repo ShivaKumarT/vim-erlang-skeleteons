@@ -17,6 +17,8 @@
 -export([init/1]).
 
 -define(SERVER, ?MODULE).
+-define(CHILD(ID), #{id => ID, start => {ID, start_link, []}}).
+-define(CHILD_SUP(ID), #{id=>ID, start => {ID, start_link, []}, type => supervisor}).
 
 %%%===================================================================
 %%% API functions
@@ -50,20 +52,11 @@ start_link() ->
 %% @end
 %%--------------------------------------------------------------------
 init([]) ->
-        RestartStrategy = one_for_one,
-        MaxRestarts = 1000,
-        MaxSecondsBetweenRestarts = 3600,
-
-        SupFlags = {RestartStrategy, MaxRestarts, MaxSecondsBetweenRestarts},
-
-        Restart = permanent,
-        Shutdown = 2000,
-        Type = worker,
-
-        AChild = {'AName', {'AModule', start_link, []},
-                          Restart, Shutdown, Type, ['AModule']},
-
-        {ok, {SupFlags, [AChild]}}.
+  SupervisorFlags = #{strategy => one_for_one,
+                      intensity => 3,
+                      period => 30},
+  ChildSpecs = [?CHILD(worker_module)],
+  {ok, {SupFlags, ChildSpecs}}.
 
 %%%===================================================================
 %%% Internal functions
