@@ -23,6 +23,8 @@ plugin.
 COMMANDS
 --------
 
+`:ErlModule`              Loads erlang modle template into current buffer.
+
 `:ErlServer`              Loads gen_server template into current buffer.
 
 `:ErlFsm`                 Loads gen_fsm template into current buffer.
