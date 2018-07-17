@@ -23,7 +23,7 @@ plugin.
 COMMANDS
 --------
 
-`:ErlModule`              Loads erlang modle template into current buffer.
+`:ErlModule`              Loads erlang module template into current buffer.
 
 `:ErlServer`              Loads gen_server template into current buffer.
 
