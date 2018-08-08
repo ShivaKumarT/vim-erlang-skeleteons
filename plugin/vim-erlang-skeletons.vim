@@ -62,5 +62,6 @@ command! -nargs=0 ErlSupervisor  call LoadTemplate("supervisor")
 command! -nargs=0 ErlEvent       call LoadTemplate("gen_event")
 command! -nargs=0 ErlApplication call LoadTemplate("application")
 command! -nargs=0 ErlModule      call LoadTemplate("module")
+command! -nargs=0 ErlWxObject    call LoadTemplate("wx_object")
 command! -nargs=1 ErlTemplate    call LoadTemplate(<args>)
 
