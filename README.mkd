@@ -37,10 +37,6 @@ COMMANDS
 
 `:ErlTemplate [arg]`      Loads [arg] template into current buffer.
 
-SHIVA
----------
-Test
-
 
 TEMPLATES
 =========
