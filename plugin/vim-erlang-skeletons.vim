@@ -1,4 +1,4 @@
-if !has('python')
+if !has('python3')
     echo "Error: Required vim compiled with +python"
     finish
 endif
